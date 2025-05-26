@@ -1,8 +1,85 @@
 Comprehensive Python Cheatsheet
 ===============================
-<sup>[Download text file](https://raw.githubusercontent.com/gto76/python-cheatsheet/main/README.md), [Fork me on GitHub](https://github.com/gto76/python-cheatsheet) or [Check out FAQ](https://github.com/gto76/python-cheatsheet/wiki/Frequently-Asked-Questions).
-</sup>
 
+### Arguments
+```python
+import argparse
+
+p = argparse.ArgumentParser()
+
+p.add_argument("positional", type=str)
+p.add_argument("--non_positional", type=str)
+
+args = p.parse_args()
+
+print(args.positional)
+print(args.non_positional)
+```
+
+### Read Text from File
+```python
+def read_file(filename):
+    with open(filename, encoding='utf-8') as file:
+        return file.readlines()
+```
+
+### Write Text to File
+```python
+def write_to_file(filename, text):
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(text)
+```
+
+### Parse Directory
+```python
+import os
+
+for (root,dirs,files) in os.walk('C:/W3school/',topdown=True):
+    print("Directory path: %s"%root)
+    print("Directory Names array: %s"%dirs)
+
+    # first dir full path:
+    os.path.join(root, dirs[0])
+
+    print("Files Names array: %s"%files)
+```
+
+### Parse Wildcards, do file checks
+```python
+<list> = glob.glob('<pattern>')
+
+<bool> = os.path.exists(<path>)     # Or: <Path>.exists()
+<bool> = os.path.isfile(<path>)     # Or: <DirEntry/Path>.is_file()
+<bool> = os.path.isdir(<path>)      # Or: <DirEntry/Path>.is_dir()
+
+<str>  = os.path.basename(<path>)   # Returns final component of the path.
+<str>  = os.path.dirname(<path>)    # Returns path without the final component.
+<tup.> = os.path.splitext(<path>)   # Splits on last period of the final component.
+```
+
+### OS Commands
+```python
+import os, shutil, subprocess
+os.chdir(<path>)                    # Changes the current working directory.
+os.mkdir(<path>, mode=0o777)        # Creates a directory. Permissions are in octal.
+os.makedirs(<path>, mode=0o777)     # Creates all path's dirs. Also `exist_ok=False`.
+
+shutil.copy(from, to)               # Copies the file. 'to' can exist or be a dir.
+shutil.copy2(from, to)              # Also copies creation and modification time.
+shutil.copytree(from, to)           # Copies the directory. 'to' must not exist.
+
+os.rename(from, to)                 # Renames/moves the file or directory.
+os.replace(from, to)                # Same, but overwrites file 'to' even on Windows.
+shutil.move(from, to)               # Rename() that moves into 'to' if it's a dir.
+
+os.remove(<path>)                   # Deletes the file.
+os.rmdir(<path>)                    # Deletes the empty directory.
+shutil.rmtree(<path>)               # Deletes the directory.
+
+<pipe> = os.popen('<commands>')     # Executes commands in sh/cmd. Returns combined stdout.
+<str>  = <pipe>.read(size=-1)       # Reads 'size' chars or until EOF. Also readline/s().
+<int>  = <pipe>.close()             # Returns None if last command exited with returncode 0.
+```
 
 Contents
 --------
