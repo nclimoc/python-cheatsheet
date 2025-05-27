@@ -64,7 +64,7 @@ for thing in os.listdir(root_path):
 ### String Stuff
 ```python
 "".join(["str1", "str2", "str3"])   # Concatenate strings in a list
-"string".count("substring")         # count occurences of substring in string
+"string".count("substring")         # Count occurences of substring in string
 ```
 
 ### OS Commands
@@ -89,6 +89,12 @@ shutil.rmtree(<path>)               # Deletes the directory.
 <pipe> = os.popen('<commands>')     # Executes commands in sh/cmd. Returns combined stdout.
 <str>  = <pipe>.read(size=-1)       # Reads 'size' chars or until EOF. Also readline/s().
 <int>  = <pipe>.close()             # Returns None if last command exited with returncode 0.
+```
+
+### Hashing
+```python
+from hashlib import sha256
+print(sha256("string".encode('utf-8')).hexdigest())
 ```
 
 Contents
