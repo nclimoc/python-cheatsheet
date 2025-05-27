@@ -42,6 +42,10 @@ for (root,dirs,files) in os.walk('C:/W3school/',topdown=True):
     os.path.join(root, dirs[0])
 
     print("Files Names array: %s"%files)
+
+for thing in os.listdir(root_path):
+    if os.path.isfile(os.path.join(root_path, thing)):
+        files.append(os.path.join(root_path, thing))
 ```
 
 ### Parse Wildcards, do file checks
@@ -55,6 +59,12 @@ for (root,dirs,files) in os.walk('C:/W3school/',topdown=True):
 <str>  = os.path.basename(<path>)   # Returns final component of the path.
 <str>  = os.path.dirname(<path>)    # Returns path without the final component.
 <tup.> = os.path.splitext(<path>)   # Splits on last period of the final component.
+```
+
+### String Stuff
+```python
+"".join(["str1", "str2", "str3"])   # Concatenate strings in a list
+"string".count("substring")         # count occurences of substring in string
 ```
 
 ### OS Commands
