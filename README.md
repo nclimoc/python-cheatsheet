@@ -93,7 +93,7 @@ shutil.rmtree(<path>)               # Deletes the directory.
 
 ### Symlink Stuff
 ```python
-os.readlink('A')   # Get Link target
+os.readlink('path')   # Get Link target
 
 os.symlink(target, tmpLink)
 os.rename(tmpLink, linkName)   # Change Link target
