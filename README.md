@@ -91,6 +91,14 @@ shutil.rmtree(<path>)               # Deletes the directory.
 <int>  = <pipe>.close()             # Returns None if last command exited with returncode 0.
 ```
 
+### Symlink Stuff
+```python
+os.readlink('A')   # Get Link target
+
+os.symlink(target, tmpLink)
+os.rename(tmpLink, linkName)   # Change Link target
+```
+
 ### Hashing
 ```python
 from hashlib import sha256
